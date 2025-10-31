@@ -29,7 +29,7 @@ outFileName: "index.html"
 
 <canvas id="combo-sine-wave" class="sketch" width=500 height=300></canvas>
 
-Този вълнообразен модел може да бъде разделен на синусуиди. В смисъл, че когато съберем двете синус вълни - ще получим оригиналната вълна. 
+Този вълнообразен модел може да бъде разделен на синусоиди. В смисъл, че когато съберем двете синус вълни - ще получим оригиналната вълна. 
 
 <canvas id="combo-sine-wave-split" class="sketch" width=500 height=500></canvas>
 
@@ -47,40 +47,40 @@ outFileName: "index.html"
 
 Being able to split them up on a computer can give us an understanding of what a person actually hears. We can understand how high or low a sound is, or figure out what note it is.
 
-We can also use this process on waves that don't look like they're made of sine waves.
+Можем да извършим този процес и на вълни, които не изглеждат като да са направени от синусоиди. 
 
-Let's take a look at this guy. It’s called a square wave.
+Разгледай тази. Нарича се квадратна вълна.
 
 <canvas id="square-wave" class="sketch" width=500 height=300></canvas>
 
-It might not look like it, but it also can be split up into sine waves.
+Може да не изглежда като да е възможно, но и тя може да бъде разделена на синусови вълни.
 
 <canvas id="square-wave-split" class="sketch" width=500 height=500></canvas>
 
-We need a lot of them this time – technically an infinite amount to perfectly represent it. As we add up more and more sine waves the pattern gets closer and closer to the square wave we started with.
+Този път ни трябват много от тях - технически безкраен брой, за да я представим перфектно. Като добавяме повече и повече синусови вълни, моделът изглежда все по-близък до квадратната вълна с която започнахме.
 
 <canvas id="square-wave-build-up" class="sketch" width=500 height=500></canvas>
 <input id="square-wave-build-up-slider" type="range" min="0" max="1" value="0" step="any" >
 
-<button id="square-wave-button" class="button">Play Wave</button>
+<button id="square-wave-button" class="button">Пусни Вълна</button>
 
-*Drag the slider above to play with how many sine waves there are.*
+*Плъзни слайдерът отгоре, за да си поиграеш с колко синусови вълни има.*
 
 Visually, you'll notice that actually the first few sine waves are the ones that make the biggest difference. With the slider halfway, we have the general shape of the wave, but it's all wiggly. We just need the rest of the small ones to make the wigglyness flatten out.
 
-When you listen to the wave, you'll hear the sound get lower, because we're removing the higher frequencies.
+Когато слушаш вълната, ще чуеш как звукът се снижава, защото премахваме по-високите честоти.
 
-This process works like that for any repeating line. Give it a go, try drawing your own!
+Този процес работи за всяка повтаряще се вълна. Давай, нарисувай своя!
 
 <div class="multi-container">
 <div class="sketch" >
     <canvas id="wave-draw" class="sketch-child" width=500 height=300></canvas>
-    <p id="wave-draw-instruction" class="instruction wave-instruction">Draw here!</p>
+    <p id="wave-draw-instruction" class="instruction wave-instruction">Рисувай тук!</p>
 </div>
 <canvas id="wave-draw-split" class="sketch" width=500 height=500></canvas>
 </div>
 <input id="wave-draw-slider" type="range" min="0" max="1" value="1" step="any">
-<button id="wave-draw-button" class="button">Play Wave</button>
+<button id="wave-draw-button" class="button">Пусни Вълна</button>
 
 *Move the slider to see how as we add more sine waves, it gets closer and closer to your drawing*
 
@@ -102,7 +102,7 @@ So in this case, we can use Fourier transforms to get an understanding of the fu
 
 Ok, now let's dig more into the Fourier transform. This next part looks cool, but also gives you a bit more understanding of what the Fourier transform does. But mostly looks cool.
 
-## Epicycles
+## Епицикли
 
 Now at the start, I said it splits things into sine waves. The thing is, the sine waves it creates are not just regular sine waves, but they’re 3D. You could call them "complex sinusoids". Or just "spirals".
 
@@ -142,7 +142,7 @@ All this applies to any drawing, really! Now it’s your chance to play around w
 <div class="multi-container">
 <div class="sketch" >
     <canvas id="draw-zone" class="sketch-child" width=500 height=500></canvas>
-    <p id="draw-zone-instruction" class="instruction">Draw here!</p>
+    <p id="draw-zone-instruction" class="instruction">Рисувай тук!</p>
     <button id="draw-zone-undo-button" class="button embedded-button">Undo</button>
 </div>
 <canvas id="circle-zone" class="sketch" width=500 height=500></canvas>
@@ -161,21 +161,21 @@ There is another type of visual data that does use Fourier transforms, however.
 
 ## JPEGs
 
-Did you know Fourier transforms can also be used on images? In fact, we use it all the time, because that's how JPEGs work! We're applying the same principles to images – splitting up something into a bunch of sine waves, and then only storing the important ones.
+Знаеше ли, че преобразованието на Фурие също може да бъде използвано върху изображения? Всъщност, ние го използваме през цялото време, тъй като JPEG изображенията работят така! Прилагаме същите принцип върху снимки - разбиваме нещо на купчина синусови вълни и запазваме само важните.
 
-Now we're dealing with images, we need a different type of sine wave. We need to have something that no matter what image we have, we can add up a bunch of these sine waves to get back to our original image.
+Сега като работим с изображения, трябва да използваме друг тип синусова вълна. Трябва да имаме нещо, което независимо от каква снимка имаме, да можем да съберем няколко от тези синусови вълни, за да получим обратно оригиналното изображение.
 
-To do that, each of our sine waves will be images too. Instead of a wave that's a line, we now have images with black and white sections. To represent the size of a wave, each image will have more or less contrast.
+За да направим това, всяка от синусовите ни вълни също трябва да бъдат изображения. Вместо вълна, която е линия, ще имаме снимки с бели и черни части. Всяко изображение ще има повече или по малко контраст, за да можем да представим размерът на вълната.
 
-We can also use these to represent color in the same way, but let's start with black-and-white images for now. To represent colorless images, we need some horizontal wave images,
+Можем да ги използваме и за да представим цвят по същия начин, но нека започнем с черно-бели снимки. За да представим безцветно изображение, ни трябват няколко изображения на хоризонтални вълни:
 
 <img id="img-y-component" src="img/components-4-0.png" class="sketch sketch-small">
 
-Along with some vertical wave images.
+Както и на няколко вертикални вълни.
 
 <img id="img-x-component" src="img/components-0-4.png" class="sketch sketch-small">
 
-By themselves, just horizontal and vertical images aren't enough to represent the types of images we get. We also need some extra ones that you get by multiplying the two together.
+Самостоятелно само хоризонтални и вертикални изображения не са достатъчно, за да представим видовете снимки, които получаваме. Ще ни трябват още няколко, които получаваме при умножение на вертикални и хоризонтални едни с други.
 
 <div class="multi-container">
 <img id="img-mult-x-component" src="img/components-0-4.png" class="sketch sketch-mult">
@@ -185,7 +185,7 @@ By themselves, just horizontal and vertical images aren't enough to represent th
 <img id="img-x-y-component" src="img/components-4-4.png" class="sketch sketch-mult">
 </div>
 
-For an 8x8 image, here are all the images we need.
+Ето всичките снимки, които ни трябват за 8х8 на снимка.
 
 <div class="img-component-container">
     <img src="img/components-0-0.png" class="img-component">
@@ -254,13 +254,13 @@ For an 8x8 image, here are all the images we need.
     <img src="img/components-7-7.png" class="img-component">
 </div>
 
-If we take the images, adjust their contrast to the right amount, and then add them up we can create any image.
+Ако вземем тези снимки и им настроим контраста правилно, а след това ги съберем, можем да пресъздадем всяка снимка.
 
-Let's start with this letter 'A'. It's pretty small, but we need it to be small otherwise we'll end up with too many other images.
+Нека започнем с тази буква 'A'. Доста малка е, но ни трябва да е малка, защото иначе ще имаме твърде много други снимки.
 
 <img src="img/a.png" class="sketch sketch-letter">
 
-As we add more and more of these images, we end up with something that becomes closer and closer to the actual image. But I think you'll see the pattern here, as we get a reasonable approximation with just a few of them.
+Като добавяме още и още от тези снмки, получаваме нещо, което става все по-близко до истинската снимка. Но може би виждаш модела, че имаме допустимо приближение само с няколко от тях.
 
 <div class="hidden-preload">
     <img src="img/img-buildup-0-0.png">
@@ -398,19 +398,19 @@ As we add more and more of these images, we end up with something that becomes c
 </div>
 </div>
 
-For actual JPEG images there are just a few extra details.
+За истинските JPEG снимки има още няколко детайла.
 
-The image gets broken up into 8x8 chunks, and each chunk gets split up separately. We use a set of frequencies to determine how light or dark each pixel is, and then another two sets for the color, one for red-green, and another for blue-yellow. The number of frequencies that we use for each chunk determines the quality of the JPEG.
+Снимката се разбива на части 8х8 и всяка част се разделя инвидивуално. Използваме множество от честоти, за да определим колко светъл или тъмен всеки пиксел е, и след това още две множества за цвета - един за червено-зелено и друг за синьо-жълто. Броят честоти, които използваме за всяка част, определя качеството на JPEG изображението.
 
-Here's a real JPEG image, zoomed in so we can see the details. When we play with the quality levels we can see this process happen.
+Ето истинско JPEG изобразжение, което е увеличено, за да видим детайлите. Когато си играем с нивата на качество, можем да видим как се случва процесът.
 
 <div id="jpeg-example" class="sketch">
     <img src="img/cat.png" class="sketch-child clear-pixels">
 </div>
 
-## Conclusion
+## Заключение
 
-So let's recap:
+Нека преговорим:
 
 - Fourier transforms are things that let us take something and split it up into its frequencies.
 - The frequencies tell us about some fundamental properties of the data we have
@@ -419,37 +419,36 @@ So let's recap:
 
 This is just scratching the surface into some applications. The Fourier transform is an extremely powerful tool, because splitting things up into frequencies is so fundamental. They're used in a lot of fields, including circuit design, mobile phone signals, magnetic resonance imaging (MRI), and quantum physics!
 
-## Questions for the curious
+## Въпроси за любопитните
 
-I skipped most of the math stuff here, but if you're interested in the underlying principles of how it works, here are some questions you can use to guide your research:
+Изпуснах повечето математически неща тук, но ако си заинтересован в принципите и как работи, ето няколко въпроса, които да ти помогнат в проучването:
+- Как представяш преобразованието на Фурие математически?
+- Каква е разликата между преобразование на Фурие в продължително време и преобразование на Фурие в дискретно време?
+- Как изчисляваш преобразованието на Фурие?
+- Как извършваш преобразование на Фурие на цяла песен? (Вместо само на една нота.)
 
-- How do you mathematically represent a Fourier transform?
-- What's the difference between a continuous time Fourier transform and a discrete time Fourier transform?
-- How do you computationally do a Fourier transform?
-- How do you do a Fourier transform of a whole song? (Rather than just a single note.)
+## Допълнително 'четене'
 
-## Further 'reading'
-
-To learn more, some really good resources you can check out are:
+За да научиш повече, няколо много добри ресурса, които можеш да разгледаш са:
 
 [An Interactive Guide To The Fourier Transform](https://betterexplained.com/articles/an-interactive-guide-to-the-fourier-transform/)
-A great article that digs more into the mathematics of what happens.
+Добра статия, която задълбава повече в математиката на какво се случва.
 
 [But what is the Fourier Transform? A visual introduction.](https://www.youtube.com/watch?v=spUNpyF58BY)
-A great Youtube video by 3Blue1Brown, also explaining the maths of Fourier transforms from an audio perspective.
+Прекрасно Youtube видео на 3Blue1Brown, което също обяснява математиката на преобразованята на Фурие от аудио перспектива.
 
 [A Tale of Math & Art: Creating the Fourier Series Harmonic Circles Visualization](https://alex.miller.im/posts/fourier-series-spinning-circles-visualization/)
 Another article explaining how you can use epicycles to draw a path, explained from a linear algebra perspective.
 
 [Fourier transform (Wikipedia)](https://en.wikipedia.org/wiki/Fourier_transform)
-And of course, the Wikipedia article is pretty good too.
+Разбира се и Уикипедия статия е доста добра.
 
-## The author
+## Авторът
 
 <canvas id="its-meee" class="sketch" width=500 height=500></canvas>
 
-I'm Jez! Full time I work at a [search company](https://www.google.com/) in the Bay Area, and in my spare time I like making games and interactive code things like this!
+Аз съм Джез! Работя на пълен работен ден в [компания за търсене](https://www.google.com) по крайбрежието на САЩ и в свободното си време обичам да правя игри и интерактивни кодови неща като това!
 
-This webpage is open-source, you can check out the code on [GitHub](https://github.com/Jezzamonn/fourier)! If you have any feedback or want to ask any questions, feel free to email me at <span id="email-text">fourier [at] jezzamon [dot] com</span>, or shoot me a tweet on [Twitter](https://twitter.com/jezzamonn).
+Тази уеб страница е open-source и можеш да разгледаш кода в [GitHub](https://github.com/Jezzamonn/fourier)! Ако имаш обратна връзка или въпроси, можеш да ми пратиш имейл на <span id="email-text">fourier [at] jezzamon [dot] com</span>, или да ми пратиш tweet tweet на [Twitter](https://twitter.com/jezzamonn).
 
-If you want to see more of my work, check out my [homepage](/), and if you want to see what I'm making next, you can follow my Twitter account, [@jezzamonn](https://twitter.com/jezzamonn)!
+Ако желаеш да разгледаш още от работата ми, разгледай [заглавната](/) ми страница. Ако искаш да видиш какво ще правя, можеш да последваш Twitter акаунта ми [@jezzamonn](https://twitter.com/jezzamonn)!
