@@ -66,7 +66,7 @@ Being able to split them up on a computer can give us an understanding of what a
 
 *Плъзни слайдерът отгоре, за да си поиграеш с колко синусови вълни има.*
 
-Visually, you'll notice that actually the first few sine waves are the ones that make the biggest difference. With the slider halfway, we have the general shape of the wave, but it's all wiggly. We just need the rest of the small ones to make the wigglyness flatten out.
+Визуално ще забележиш, че всъщност само първите няколко синусови вълни са тези, които правят най-голямата разлика. Дори със слайдерът наполовина, имаме общата форма на вълната, но е леко раздвижена. Просто ни трябват и останалите от малките вълни, за да я изгладим. 
 
 Когато слушаш вълната, ще чуеш как звукът се снижава, защото премахваме по-високите честоти.
 
@@ -82,25 +82,25 @@ Visually, you'll notice that actually the first few sine waves are the ones that
 <input id="wave-draw-slider" type="range" min="0" max="1" value="1" step="any">
 <button id="wave-draw-button" class="button">Пусни Вълна</button>
 
-*Move the slider to see how as we add more sine waves, it gets closer and closer to your drawing*
+*Мести слайдерът, за да видиш как с добавянето на повече синусоиди, толкова повече се приближава до оригиналната ти рисунка*
 
-Again, aside from the extra wigglyness, the wave looks pretty similar with just half of the sine waves.
+Отново, освен допълнителната раздвиженост, вълната изглежда доста сходно само с половината синусови вълни.
 
-We can actually use the fact that the wave is pretty similar to our advantage. By using a Fourier transform, we can get the important parts of a sound, and only store those to end up with something that's pretty close to the original sound.
+Всъщност можем да използваме фактът, че вълната е доста сходна за наша ползва. Като използваме преобразованието на Фурие, можем да извадим важните части на звук и да запазим само тях. Така ще получим нещо доста сходно на оригиналния звук.
 
-Normally on a computer we store a wave as a series of points.
+Обикновено на компютър пазим вълните като последователност от точки.
 
 <canvas id="wave-samples" class="sketch" width=500 height=500></canvas>
 
-What we can do instead is represent it as a bunch of sine waves. Then we can compress the sound by ignoring the smaller frequencies. Our end result won't be the same, but it'll sound pretty similar to a person.
+Вместо това, можем да я запазим като купчина синусови вълни. След това компресираме звука, като игнорираме по-малките честоти. Крайният резултат няма да бъде същия, но ще звучи доста сходно на човек.
 
 <canvas id="wave-frequencies" class="sketch" width=500 height=500></canvas>
 
-This is essentially what MP3s do, except they're more clever about which frequencies they keep and which ones they throw away.
+По същество MP3-те правят това, освен че те са по-хитри относно кои честоти запазват и кои премахват.
 
-So in this case, we can use Fourier transforms to get an understanding of the fundamental properties of a wave, and then we can use that for things like compression.
+В този случай използваме преобразования на Фурие, за да добием представа за основните характеристики на вълна и после можем да правим неща като компресия.
 
-Ok, now let's dig more into the Fourier transform. This next part looks cool, but also gives you a bit more understanding of what the Fourier transform does. But mostly looks cool.
+Нека задълбаем повече в преобразованието на Фурие. Следващата част ще изглежда готино, но също ще ти помогне да разбереш какво прави преобразованието. Но предимно изглежда готино.
 
 ## Епицикли
 
@@ -149,7 +149,7 @@ All this applies to any drawing, really! Now it’s your chance to play around w
 </div>
 <input id="circle-zone-slider" type="range" min="0" max="1" value="1" step="any">
 
-*Use the slider to control how many circles are used for your drawing*
+*Използвай слайдерът, за да контролираш колко кръгчета са използвани за рисунката ти*
 
 Again, you'll see for most shapes, we can approximate them fairly well with just a small number of circles, instead of saving all the points.
 
@@ -412,12 +412,12 @@ There is another type of visual data that does use Fourier transforms, however.
 
 Нека преговорим:
 
-- Fourier transforms are things that let us take something and split it up into its frequencies.
-- The frequencies tell us about some fundamental properties of the data we have
-- And can compress data by only storing the important frequencies
-- And we can also use them to make cool looking animations with a bunch of circles
+- Преобразованията на Фурие са неща, които ни позволяват да вземем нещо и да го разбием на съставляващите го честоти.
+- Честотите ни казват за какви основни свойства нашите данни имат.
+- Можем да компресираме данни като запазваме само важните честоти.
+- И също можем да правим готини анимации с купчина кръгчета.
 
-This is just scratching the surface into some applications. The Fourier transform is an extremely powerful tool, because splitting things up into frequencies is so fundamental. They're used in a lot of fields, including circuit design, mobile phone signals, magnetic resonance imaging (MRI), and quantum physics!
+Това е само повърхността на някои приложения. Преобразованието на Фурие е изключително силен инструмент, защото разделянето на неща на честоти е доста основно. Използва се в много области, включително в дизайн на интегрални схеми, сигнали на мобилини телефони, магнитно-резонанса томография (ЯМР) и квантова физика!
 
 ## Въпроси за любопитните
 
@@ -438,7 +438,7 @@ This is just scratching the surface into some applications. The Fourier transfor
 Прекрасно Youtube видео на 3Blue1Brown, което също обяснява математиката на преобразованята на Фурие от аудио перспектива.
 
 [A Tale of Math & Art: Creating the Fourier Series Harmonic Circles Visualization](https://alex.miller.im/posts/fourier-series-spinning-circles-visualization/)
-Another article explaining how you can use epicycles to draw a path, explained from a linear algebra perspective.
+Друга статия, която обяснява как можеш да използваш епицикли, за да нарисуваш крива. Разглежда се от перспективата на линейната алгебра.
 
 [Fourier transform (Wikipedia)](https://en.wikipedia.org/wiki/Fourier_transform)
 Разбира се и Уикипедия статия е доста добра.
